@@ -1,11 +1,11 @@
-local proximitySensor = require "plugin.proximitySensor"
-proximitySensor.init()
+local ps = require "plugin.proximitySensor"
+ps.init()
 local myText
-proximitySensor.setListener(function ( e )
+ps.setListener(function ( e )
 	myText.text = e.status
 end)
 myText = display.newText( "Blank", display.contentCenterX, display.contentCenterY, native.systemFont, 20 )
-if (proximitySensor.hasSensor()) then
+if (ps.hasSensor()) then
 	print("Has Sensor")
 else
 	print("No Sensor")
